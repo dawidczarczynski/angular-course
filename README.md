@@ -1,1 +1,1 @@
-# typescript-course
+# Kurs TypeScript & Angular - przykłady i ćwiczenia
