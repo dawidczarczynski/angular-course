@@ -1,0 +1,158 @@
+.books-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 10px;
+}
+
+.books-menu {
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+    height: 100vh;
+    display: sticky;
+    overflow: scroll;
+}
+
+/*
+ *  Books list
+ */
+.books-list {
+    list-style: none;
+}
+
+.books-list-item {
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    cursor: pointer;
+}
+
+.books-list-item:hover {
+    background-color: lightgray;
+}
+
+.books-list-item-active {
+    background-color: rgba(37, 144, 245, 0.33);
+}
+
+.books-list-item-title {
+    font-size: 1.2em;
+}
+
+.books-list-item-title span {
+    display: block;
+    font-size: 0.8em;
+    
+}
+
+.books-list-item-cover {
+    width: 80px;
+}
+
+.books-list-item-cover img {
+    max-height: 100px;
+}
+
+/*
+ * Book details
+ */
+.book-details {
+    padding: 20px;
+}
+
+.book-details-title {
+    font-weight: bold;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.book-details-author {
+    font-size: 1.5em;
+    color: gray;
+}
+
+.book-details-pages {
+    padding: 15px 0;
+}
+
+.book-details-cover {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.book-details-cover img {
+    max-height: 450px;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/**
+ * Buttons
+ */
+.search-book-btn, .add-book-btn {
+    position: fixed;
+    z-index: 10;
+    right: 10px;
+    background-color: rgba(37, 144, 245, 0.8);
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 5px;
+    width: 120px;
+}
+
+.search-book-btn { 
+    top: 10px;
+}
+
+.add-book-btn {
+    top: 65px;
+}
+
+/**
+ * Hidden menu
+ */
+.hidden-menu {
+    box-sizing: border-box;
+    position: fixed;
+    height: 100vh;
+    width: 400px;
+    background-color: white;
+    top: 0;
+    padding: 10px;
+    right: -400px; 
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.displayed-menu {
+    right: 0;
+}
+
+.hide-menu-btn {
+    border: none;
+    background: none;
+}
+
+/**
+ * Search
+ */
+.search-book {
+    padding: 120px 20px 20px 20px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.search-book label {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.search-book input {
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid lightgrey;
+    margin-top: 5px;
+    width: 100%;
+    padding: 10px;
+}
