@@ -1,0 +1,74 @@
+
+<div class="books-wrapper">
+  <aside class="books-menu">
+    <ul class="books-list">
+      <li class="books-list-item" 
+        *ngFor="let book of (filteredBooks || books)"
+        [ngClass]="{'books-list-item-active': book === selectedBook}"
+        (click)="selectBook(book)">
+        <div class="books-list-item-cover">
+          <img [src]="book.coverUrl" [alt]="book.title" />
+        </div>
+        <p class="books-list-item-title">
+          {{ book.title }}
+          <span>{{ book.author }}</span>
+        </p>
+      </li>
+    </ul>
+  </aside>
+  <main class="book-details" *ngIf="selectedBook">
+    <h2 class="book-details-title">{{ selectedBook.title }}</h2>
+    <p class="book-details-author">{{ selectedBook.author }}</p>
+    <p class="book-details-pages">Number of pages: {{ selectedBook.pages }}</p>
+    <div class="book-details-cover">
+      <img [src]="selectedBook.coverUrl" [alt]="selectedBook.title" />
+    </div>
+  </main>
+</div>
+<button (click)="showSearch()" class="search-book-btn">Search</button>
+<button (click)="showAddForm()" class="add-book-btn">Add</button>
+
+<aside class="hidden-menu" [ngClass]="{'displayed-menu': isSecondaryMenuActive}">
+  <button class="hide-menu-btn" (click)="hideSecondaryMenu()">Close</button>
+  <div *ngIf="isSearchActive" class="search-book">
+    <label>Search for a book
+        <input 
+          type="text" 
+          placeholder="Title or author..." 
+          [(ngModel)]="searchBookPhrase" 
+          (keydown)="searchBook()"
+         />
+    </label>
+  </div>
+  <div *ngIf="isAddActive" class="search-book">
+    <label>Title
+      <input 
+        type="text" 
+        placeholder="Title.." 
+        [(ngModel)]="newBook.title" 
+       />
+    </label>
+    <label>Author
+      <input 
+        type="text" 
+        placeholder="Author.." 
+        [(ngModel)]="newBook.author" 
+       />
+    </label>
+    <label>Pages
+      <input 
+        type="number" 
+        placeholder="Pages..." 
+        [(ngModel)]="newBook.pages" 
+       />
+    </label>
+    <label>Cover URL
+      <input 
+        type="text" 
+        placeholder="Cover URL.." 
+        [(ngModel)]="newBook.coverUrl" 
+       />
+    </label>
+    <button (click)="addBook()">Save</button>
+  </div>
+</aside>
